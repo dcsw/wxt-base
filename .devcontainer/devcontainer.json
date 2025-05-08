@@ -1,0 +1,29 @@
+{
+  "name": "Bun & TypeScript",
+  // "image": "oven/bun:latest",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // "workspaceFolder": "/home/bun",
+  "mounts": [
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
+  ],
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "oven.bun-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "bun.debugTerminal.enabled": true,
+        "bun.runtime": "/usr/local/bin/bun"
+      }
+    }
+  },
+  "remoteUser": "bun"
+}
